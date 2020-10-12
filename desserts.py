@@ -27,6 +27,24 @@ class Cupcake:
         else:
             self.qty = self.qty - amount
 
+    @staticmethod
+    def scale_recipe(ingredients, amount):
+        scaled_ingredients = []
+
+        for ingredient in ingredients:
+            scaled_ingredients.append((ingredient[0], ingredient[1] * amount))
+
+        return scaled_ingredients
+
+    @classmethod
+    def get(cls, name):
+        cupcake = cls.cache.get(name)
+        if not cupcake:
+            print("Sorry, that cupcake doesn't exist")
+        else:
+            return cupcake
+
+
 
 
     def __repr__(self):
